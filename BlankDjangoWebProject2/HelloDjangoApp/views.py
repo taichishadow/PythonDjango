@@ -15,3 +15,13 @@ def index(request):
             'content': now.strftime("%A, %d %B, %Y at %X"),
         }
     )
+
+def about(request):
+    return render(
+        request,
+        "HelloDjangoApp/about.html",
+        {
+            'title': "about me",
+            'content': "this is about me page",
+        }
+    )
