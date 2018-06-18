@@ -1,8 +1,16 @@
 from django.shortcuts import render
-#from django.http import HttpResponse
+from HelloDjangoApp import models
+from django.http import JsonResponse
 from datetime import datetime
+from HelloDjangoApp.models import Role, User
+from django.core import serializers
 
 # Create your views here.
+def getRoles(request):
+    roles = Role.objects.all().values('name')
+    roles_list = list(roles) 
+    return JsonResponse(roles_list, safe=False)
+
 def index(request):
     now = datetime.now()
     
